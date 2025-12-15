@@ -4,7 +4,7 @@ COPY ./src ./src
 COPY ./pom.xml .
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-slim
 
 VOLUME /tmp
 ARG JAR_FILE=target/*.jar
