@@ -6,7 +6,7 @@ COPY ./src ./src
 RUN mvn clean package -DskipTests
 
 # Étape 2 : Création de l'image finale avec OpenJDK
-FROM eclipse-temurin:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY --from=builder /app/target/*.jar eureka-server.jar
 ENTRYPOINT ["java", "-jar", "/app/eureka-server.jar"]
